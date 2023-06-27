@@ -13,3 +13,6 @@ class Solution {
         return count;
     }
 }
+
+//jab tak no 0 ni hojata tab tak steps ko repeat karte jao condition check karke aur count jo ki 
+// steps ka count deta uski value ko increment karte jao by one

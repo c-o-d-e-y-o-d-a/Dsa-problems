@@ -13,3 +13,5 @@ class Solution {
         
     }
 }
+//you just iterate over each customer's array which is given in an array and add and compare 
+//with the current maximum to check if its bigger than that value and if it is than you give the max value to that sum
