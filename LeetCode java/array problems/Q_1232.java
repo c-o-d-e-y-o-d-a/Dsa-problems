@@ -52,22 +52,21 @@ class Solution {
 }
 
 //better solution from leetcode that uses the same slope formulae
- public boolean checkStraightLine(int[][] coordinates) {
-         double s;
-        if (coordinates[1][0] - coordinates[0][0] == 0) {
-            s = Double.MAX_VALUE;
-        } else {
-            s = (double)(coordinates[1][1] - coordinates[0][1]) / (coordinates[1][0] - coordinates[0][0]);
-        }
+class Solution {
+    public boolean checkStraightLine(int[][] coordinates) {
+        int x0 = coordinates[0][0];
+        int y0 = coordinates[0][1];
+        int x1 = coordinates[1][0];
+        int y1 = coordinates[1][1];
+        
         for (int i = 2; i < coordinates.length; i++) {
-            double slope = Double.MAX_VALUE;
-            if (coordinates[i][0] - coordinates[i-1][0] != 0) {
-                slope = (double)(coordinates[i][1] - coordinates[i-1][1]) / (coordinates[i][0] - coordinates[i-1][0]);
-            }
-            if (slope != s) {
+            int x = coordinates[i][0];
+            int y = coordinates[i][1];
+            if ((x - x0) * (y1 - y0) != (y - y0) * (x1 - x0)) {
                 return false;
             }
         }
+        
         return true;
     }
-
+}
