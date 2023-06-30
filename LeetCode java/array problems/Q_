@@ -1,0 +1,38 @@
+//my solution - failed at big arrays , passed 90% of test case
+class Solution {
+    public int maxProfit(int[] prices) {
+        int maxProfit = 0;
+        for(int i=0;i<prices.length;i++){
+            for(int j=i;j<prices.length;j++){
+                int profit = prices[j]-prices[i];
+                if(profit>0 && profit>maxProfit){
+                    maxProfit=profit; 
+                }
+            }
+        }
+        return maxProfit;
+
+
+        
+    }
+}
+
+// best java solution with tc - O(n) and mc - O(1)
+//how the solution works - you store the min value till now in the array and subtract it from the next value to find profit if the next value is bigger
+//and you store the largest profit found this way
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int profit = 0;
+        int min_price = Integer.MAX_VALUE;
+        for(int i=0;i<prices.length;i++){
+            min_price=Math.min(min_price,prices[i]);
+            profit=Math.max(profit,prices[i]-min_price);
+
+        }
+        return profit;
+
+
+        
+    }
+}
