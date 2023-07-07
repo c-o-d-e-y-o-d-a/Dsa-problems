@@ -1,4 +1,4 @@
-//mysolution with tc - O(n) sc - O(1)
+//mysolution with tc - O(n) sc - O(n)
 //problem i faced in this sol - was not using the java methods like. concat and .equals
 //wasinstead doing += and ==
 
