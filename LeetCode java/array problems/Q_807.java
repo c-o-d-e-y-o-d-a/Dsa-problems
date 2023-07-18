@@ -6,7 +6,7 @@ Beats 100.00%of users with Java
 Memory
 Details
 43.65mb
-Beats 16.01%of users with Java
+Beats 76.01%of users with Java
 There is a city composed of n x n blocks, where each block contains a single building shaped like a vertical square prism. You are given a 0-indexed n x n integer matrix grid where grid[r][c] represents the height of the building located in the block at row r and column c.
 
 A city's skyline is the outer contour formed by all the building when viewing the side of the city from a distance. The skyline from each cardinal direction north, east, south, and west may be different.
@@ -26,7 +26,7 @@ you just need to find the biggest element in each row and each column after you 
 to find the solve the minimum value between the max value in row and column and subtract the 
 no from that value when you are iterating through the height of each building and then add those
 differences together to find the answer
- sc - n2 prolly and tc is n2 too*/
+ sc - n prolly and tc is n2 too*/
 
 class Solution {
     public int maxIncreaseKeepingSkyline(int[][] grid) {
