@@ -26,7 +26,7 @@ you just need to find the biggest element in each row and each column after you 
 to find the solve the minimum value between the max value in row and column and subtract the 
 no from that value when you are iterating through the height of each building and then add those
 differences together to find the answer
- */
+ sc - n2 prolly and tc is n2 too*/
 
 class Solution {
     public int maxIncreaseKeepingSkyline(int[][] grid) {
