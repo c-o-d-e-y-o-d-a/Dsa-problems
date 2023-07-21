@@ -106,3 +106,44 @@ class Solution {
 /* MORE's voting algorithm  */
 
 
+/* THEORY OF HOW IT WORKS- 
+YOU TAKE TWO INTEGERS- CANDIDATE AND VOTE
+- YOU TAKE AN ELEMENT AS CANDIDATE AND THEN GIVE IT ONE VOTE IF THE NEXT ELEMENT IS DIFFERENT THEN YOU SUBTRACT ONE VOTE AND IF
+IT IS SAME THEN YOU INCREASE BY ONE VOTE  , IF AN ELEMENT GETS 0 VOTES THEN THE NEXT ELEMENT BECOMES CANDIDATE AND GETS ONE VOTE
+
+upar upar se - all are trying to downvote the majority element but it exists so many times that it always wins the election
+ 
+ 
+ 
+ Runtime
+Details
+1ms
+Beats 99.82%of users with Java
+Memory
+Details
+48.88mb
+Beats 24.03%of users with Java 
+
+
+best runtime yet 💀 💀 💀 💀 💀 💀 💀 */
+class Solution {
+    public int majorityElement(int[] nums) {
+        int halfLen = nums.length/2;
+        int candidate = nums[0];
+        int votes = 1;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==candidate){
+                votes++;
+            }
+            else{
+                votes--;
+            }
+            if(votes==0){
+                candidate=nums[i];
+                votes=1;
+            }
+            
+        }
+        return candidate;
+    }
+}
