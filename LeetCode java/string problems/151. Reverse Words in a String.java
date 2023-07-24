@@ -44,3 +44,35 @@ class Solution {
         
     }
 }
+
+
+// SOLUTION to beat more than 80% in both time and space
+
+import java.util.*;
+
+class Solution {
+    public String reverseWords(String s) {
+        int n = s.length(); // Get the length of the input string
+        StringBuilder ans = new StringBuilder(); // Initialize a StringBuilder to store the reversed words
+        int i = n - 1; // Start from the last character of the input string
+
+        while (i >= 0) {
+            if (s.charAt(i) == ' ') {
+                i--; // If the current character is a space, move to the next character
+            } else {
+                StringBuilder temp = new StringBuilder(" "); // Initialize a temporary StringBuilder with a space character
+                int j = i;
+                while (j >= 0 && s.charAt(j) != ' ') {
+                    temp.append(s.charAt(j)); // Append each character to the temporary StringBuilder in reverse order
+                    j--;
+                }
+                ans.append(temp.reverse()); // Reverse the characters in the temporary StringBuilder and append to the final StringBuilder
+                i = j; // Update the index to continue from the next word
+            }
+        }
+
+        ans.deleteCharAt(ans.length() - 1); // Remove the extra space character appended at the end
+
+        return ans.toString(); // Return the reversed words as a string
+    }
+}
