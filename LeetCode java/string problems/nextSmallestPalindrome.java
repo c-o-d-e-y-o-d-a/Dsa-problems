@@ -30,5 +30,63 @@ the right side then you return leftside + reverseOfLeftSide
 
 if its not then you add 1 to the int version of left side and return 
 leftside + reverseOfLeftSide 
-
+  
  */
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+
+	public static Boolean checkAll9(String number){
+			
+		for(int i=0;i<number.length();i++){
+			if(number.charAt(i)!='9'){
+				return false;
+			}
+		}
+
+			return true;
+	}
+
+
+	public static int getNextLargestPalindrome(String number,int length){
+		StringBuilder answer = new StringBuilder();
+		if(length%2!=0){
+			  String rightSide = number.substring(0,length/2);
+			  String leftSide = number.substring((length/2)+1,length);
+			  StringBuilder builder = new StringBuilder(leftSide);
+			  String reversed = builder.reverse().toString();
+			  if(Integer.parseInt(reversed)>=Integer.parseInt(rightSide)){
+				  answer.append(leftSide);
+				  answer.append(number.substring(length/2));
+				  answer.append(reversed);
+				  return answer;
+
+			  }
+			  else{
+				  String leftAndMiddle = number.substring(0,(length/2)+1);
+				  String leftAndMiddle = Integer.toString(Integer.parseInt(leftAndMiddle)+1);
+				  answer.append(leftAndMiddle);
+
+			  }
+
+		}
+
+
+
+	}
+
+	public static String nextLargestPalindrome(String number, int length) {
+		
+
+
+
+		if(!(checkAll9())){
+			int ans = Integer.parseInt(number)+1;
+			return Integer.toString(ans);
+		}
+		else{
+			return getNextLargestPalindrome(Integer.parseInt(number),length);
+		}
+		
+		}
+} //code i wrote today , will complete the code for the question tommorow 
