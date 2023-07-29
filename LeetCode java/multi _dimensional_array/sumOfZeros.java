@@ -26,6 +26,7 @@ and if they do then are they equal to 1 , if they are you count it using a varia
 
 time compl - O(m*n)
 space compl - O(1)
+runtime beats 39% and memory beats 85%
 
  */
 
