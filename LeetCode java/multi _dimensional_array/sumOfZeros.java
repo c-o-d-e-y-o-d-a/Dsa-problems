@@ -56,3 +56,79 @@ public class Solution {
 		return finalAns;
 	}
 }
+
+/* code to beat 83% in rum time without effecting memory usage much
+
+CREATE SIMILAR 2D ARRAY 
+
+AND SOLVE USING THAT , BELOW IS THE CODE
+
+ */
+
+import java.util.*;
+import java.io.*;
+import java.util.ArrayList;
+
+public class Solution {
+
+    public static Integer coverageOfMatrix(ArrayList<ArrayList<Integer>> mat) {
+
+        int rows = mat.size();
+        int columns = mat.get(0).size();
+        int[][] MAT = new int[rows][columns];
+
+        for (int r = 0; r < rows; r++) {
+            ArrayList<Integer> eachRow = mat.get(r);
+            for (int c = 0; c < columns; c++) {
+                MAT[r][c] = eachRow.get(c);
+                //System.out.print(MAT[r][c] + " ");
+            }
+            //System.out.println();
+        }
+
+        int ANS = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+
+                if (MAT[i][j] == 0) {
+
+                    if (i>0 &&  MAT[i - 1][j] == 1) {
+                        ANS++;
+                    }
+
+
+                    if (i<rows-1 && MAT[i + 1][j] == 1) {
+                        ANS++;
+                    }
+
+                    if (j>0 && MAT[i][j - 1] == 1) {
+                        ANS++;
+                    }
+
+                    if (j<columns-1 && MAT[i][j + 1] == 1) {
+                        ANS++;
+                    }
+                }
+
+                //System.out.print(MAT[i][j] + " ");
+            }
+            //System.out.println();
+        }
+
+
+        return ANS;
+    }
+
+    // public static void main(String[] args) {
+    //     ArrayList<Integer> r1 = new ArrayList<>(Arrays.asList(1, 0));
+    //     ArrayList<Integer> r2 = new ArrayList<>(Arrays.asList(0, 1));
+    //     //ArrayList<Integer> r3 = new ArrayList<>(Arrays.asList(7, 8, 9));
+    //     ArrayList<ArrayList<Integer>> mat = new ArrayList<>();
+    //     mat.add(r1);
+    //     mat.add(r2);
+    //     //mat.add(r3);
+
+
+    //     Solution.coverageOfMatrix(mat);
+    // }
+}
