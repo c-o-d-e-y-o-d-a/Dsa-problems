@@ -34,59 +34,62 @@ leftside + reverseOfLeftSide
  */
 import java.util.* ;
 import java.io.*; 
-public class Solution {
 
-	public static Boolean checkAll9(String number){
-			
-		for(int i=0;i<number.length();i++){
-			if(number.charAt(i)!='9'){
+public class Solution {
+    public static String getNextLargestPalindrome(String number, int length) {
+        StringBuilder answer = new StringBuilder();
+        String leftSide = number.substring(0, length / 2);
+        String middle = "";
+        String rightSide = "";
+		if(!for(int i=0;i<number.length;i++){
+			if(number.charAt(i)=='9'){
 				return false;
 			}
-		}
-
 			return true;
-	}
-
-
-	public static int getNextLargestPalindrome(String number,int length){
-		StringBuilder answer = new StringBuilder();
-		if(length%2!=0){
-			  String rightSide = number.substring(0,length/2);
-			  String leftSide = number.substring((length/2)+1,length);
-			  StringBuilder builder = new StringBuilder(leftSide);
-			  String reversed = builder.reverse().toString();
-			  if(Integer.parseInt(reversed)>=Integer.parseInt(rightSide)){
-				  answer.append(leftSide);
-				  answer.append(number.substring(length/2));
-				  answer.append(reversed);
-				  return answer;
-
-			  }
-			  else{
-				  String leftAndMiddle = number.substring(0,(length/2)+1);
-				  String leftAndMiddle = Integer.toString(Integer.parseInt(leftAndMiddle)+1);
-				  answer.append(leftAndMiddle);
-
-			  }
-
+		}){
+			return Integer.toString(Integer.parseInt(number)+2);
 		}
 
+        if (length % 2 != 0) {
+            middle = Character.toString(number.charAt(length / 2));
+            rightSide = number.substring(length / 2 + 1, length);
+        } else {
+            rightSide = number.substring(length / 2, length);
+        }
 
+        StringBuilder builder = new StringBuilder(leftSide);
+        String reversedLeftSide = builder.reverse().toString();
 
-	}
+        if (Integer.parseInt(reversedLeftSide) > Integer.parseInt(rightSide)) {
+            answer.append(leftSide);
+            answer.append(middle);
+            answer.append(reversedLeftSide);
+            return answer.toString();
+        } else {
+            int leftAndMiddleInt = Integer.parseInt(leftSide + middle) + 1;
+            String leftAndMiddle = Integer.toString(leftAndMiddleInt);
 
-	public static String nextLargestPalindrome(String number, int length) {
-		
+            if (length % 2 != 0) {
+                leftSide = leftAndMiddle.substring(0, length / 2);
+                middle = Character.toString(leftAndMiddle.charAt(length / 2));
+            } else {
+                leftSide = leftAndMiddle;
+            }
 
+            builder = new StringBuilder(leftSide);
+            reversedLeftSide = builder.reverse().toString();
 
+            answer.append(leftSide);
+            answer.append(middle);
+            answer.append(reversedLeftSide);
 
-		if(!(checkAll9())){
-			int ans = Integer.parseInt(number)+1;
-			return Integer.toString(ans);
-		}
-		else{
-			return getNextLargestPalindrome(Integer.parseInt(number),length);
-		}
-		
-		}
-} //code i wrote today , will complete the code for the question tommorow 
+            return answer.toString();
+        }
+    }
+
+    public static String nextLargestPalindrome(String number, int length) {
+        return getNextLargestPalindrome(number, length);
+    }
+}
+ //code i wrote today , will complete the code for the question tommorow 
+ //updated code  , still not complete
