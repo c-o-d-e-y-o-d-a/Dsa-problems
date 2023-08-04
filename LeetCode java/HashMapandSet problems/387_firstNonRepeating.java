@@ -37,3 +37,34 @@ for(Character key:set1){ // loop through the set
         return s.indexOf(key); // return the index of the first unique character
     }
 }
+
+
+/*
+Solution without using a linkedhashmap-
+space compl - O(n)
+time compl - O(n)
+ */
+
+class Solution {
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer> map1 = new HashMap<Character,Integer>();
+        for(int i=0;i<s.length();i++){
+            char car = s.charAt(i);
+            if(!(map1.containsKey(car))){
+                map1.put(car,1);
+
+            }
+            else{
+                map1.put(car,map1.get(car)+1);
+            }
+        }
+        for(int i=0;i<s.length();i++){
+            if(map1.get(s.charAt(i))==1){
+                return i;
+            }
+        }
+
+return -1;
+        
+    }
+}
