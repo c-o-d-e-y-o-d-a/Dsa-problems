@@ -19,7 +19,7 @@ Beats 52.70%of users with Java
 
 
 on coding  ninjas - 
-both better than 85% approx
+both better than 85% approxn
 
 
  */
