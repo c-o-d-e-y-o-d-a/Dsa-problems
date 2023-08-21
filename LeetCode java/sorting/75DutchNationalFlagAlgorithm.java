@@ -24,3 +24,59 @@ class Solution {
         }
     }
 }
+
+/* actual dnf algorithm 
+
+how it works - 
+we keep 3 points , mid ,low and high , mid and low start at 0 index, high starts at the end 
+we use the mid pointer to find elements that need to be swapped and high and low to store the places where these should be swapped with
+
+
+
+
+
+
+
+
+
+
+*/
+
+
+import java.util.* ;
+import java.io.*; 
+public class Solution 
+
+
+{
+
+    static void swap(int[] arr1 , int swapIndex1, int swapIndex2){
+        int temp = arr1[swapIndex1];
+        arr1[swapIndex1] = arr1[swapIndex2];
+        arr1[swapIndex2] = temp;
+
+    }
+    static void sort012(int[] arr)
+    {
+        int low = 0;
+        int mid = 0;
+        int high = arr.length-1;
+        while(mid<=high){
+            if(arr[mid]==0){
+                swap(arr,mid,low);
+                low++;
+                mid++;
+
+
+            }
+            else if(arr[mid]==1)mid++;
+            else if(arr[mid]==2){
+                swap(arr,mid,high);
+                high--;
+            }
+
+           
+        }
+
+    }
+}
