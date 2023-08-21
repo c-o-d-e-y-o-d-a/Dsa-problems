@@ -7,7 +7,7 @@ approaches i thought of -
 
 */
 
-//first approach - tc- 3% sc - 97% ,
+//first approach - tc- 3% sc - 97% , sc - O(n) tc - O(n)
 import java.util.* ;
 import java.io.*; 
 public class Solution {
@@ -34,6 +34,25 @@ public class Solution {
         if(map1.equals(map2))return true;
         else{return false;}
 
+
+    }
+}
+
+//2nd approach sc - O(n) tc - O(n log n)
+
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static boolean areAnagram(String str1, String str2){
+        if(str1.length() != str2.length())return false;
+        char[] charArray = str1.toCharArray();
+        char[] charArray2 = str2.toCharArray();
+        Arrays.sort(charArray);
+        Arrays.sort(charArray2);
+        for(int i=0;i<charArray.length;i++){
+            if(charArray[i]!=charArray2[i])return false;
+        }
+        return true;
 
     }
 }
