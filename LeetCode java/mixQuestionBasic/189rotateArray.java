@@ -42,6 +42,7 @@ class Solution {
 
 //solution with tc- o(n*n) and sc - o(1)
 //passed 37 out of 38 test cases
+//uses swapping last element len-1 time , till it reaches the beginning
 
 class Solution {
     public void rotate(int[] nums, int k) {
