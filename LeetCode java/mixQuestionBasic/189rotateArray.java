@@ -65,3 +65,31 @@ class Solution {
         
     }
 }
+
+//solution with linear time and constant space
+//reverse the array toget last elements infront and then reverse the first k elements
+//and then reverse the rest
+
+class Solution {
+    public void reverse(int[] arr,int ind1,int ind2){
+        while(ind1<ind2){
+            int temp = arr[ind1];
+            arr[ind1]=arr[ind2];
+            arr[ind2]=temp;
+            ind1++;
+            ind2--;
+        }
+    }
+    public void rotate(int[] nums, int k) {
+        if(k==nums.length)return;
+        if(nums.length==1)return;
+        k=k%nums.length;
+        reverse(nums,0,nums.length-1);
+        reverse(nums,0,k-1);
+        reverse(nums,k,nums.length-1);
+        
+
+        
+        
+    }
+}
