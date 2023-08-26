@@ -39,3 +39,28 @@ class Solution {
         
     }
 }
+
+//solution with tc- o(n*n) and sc - o(1)
+//passed 37 out of 38 test cases
+
+class Solution {
+    public void rotate(int[] nums, int k) {
+        if(k==nums.length)return;
+        if(k>nums.length){
+            k=k%nums.length;
+        }
+        for(int i=0;i<k;i++){
+            int ind = nums.length-1;
+            while(ind>0){
+                int temp = nums[ind];
+                nums[ind]=nums[ind-1];
+                nums[ind-1]=temp;
+                ind--;
+            }
+        }
+        
+
+        
+        
+    }
+}
