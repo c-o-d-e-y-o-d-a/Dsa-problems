@@ -93,3 +93,28 @@ class Solution {
         
     }
 }
+// for a 2d array , question on coding ninja
+
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static void reverse(int[] mat,int ind1,int ind2){
+		while(ind1<ind2){
+			int temp= mat[ind1];
+			mat[ind1] = mat[ind2];
+			mat[ind2] = temp;
+			ind1++;
+			ind2--;
+		}
+	}
+	public static int[][] rotateMatRight(int[][] mat, int n, int m, int k) {
+		k=k%m;
+		for(int i=0;i<n;i++){
+			reverse(mat[i],0,m-1);
+			reverse(mat[i],0,k-1);
+			reverse(mat[i],k,m-1);
+
+		}
+		return mat;
+	}
+}
