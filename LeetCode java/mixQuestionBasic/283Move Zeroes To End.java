@@ -61,4 +61,23 @@ class Solution {
     }
 }
 
-//
+//sc-O(1),tc-O(n)
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int firstZero = 0;
+        int nonZero = 0;
+        
+        while (nonZero < nums.length) {
+            if (nums[nonZero] != 0) {
+                if (firstZero != nonZero) {
+                    int temp = nums[firstZero];
+                    nums[firstZero] = nums[nonZero];
+                    nums[nonZero] = temp;
+                }
+                firstZero++;
+            }
+            nonZero++;
+        }
+    }
+}
