@@ -29,3 +29,10 @@ class Solution {
         
     }
 }
+//simplest way to implement kadane's algo
+
+
+  for (int i = 1; i < n; ++i) {
+            current = arr[i] + Math.max(current, 0);
+            answer = Math.max(answer, current);
+        }
