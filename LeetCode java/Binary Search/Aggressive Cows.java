@@ -43,4 +43,68 @@ public class Solution {
        
     }
 }
+// optimised solution - 
+import java.util.*;
+public class Solution {
+    public static boolean check(int[] arr,int gap,int cowNo){
+        int cowsPlaced = 1;
+        int len = arr.length;
+        int lastEl = arr[0];
+        for(int i=0;i<len;i++){
+            if(lastEl+gap<=arr[i]){                         //this code checks wether at a certain gap , all cows will get a stall or not
+                
+                cowsPlaced++;
+                
 
+                if(cowsPlaced==cowNo){
+                return true;
+                }
+                lastEl = arr[i];
+                
+
+            }
+            
+            
+            
+
+
+        }
+        return false;
+
+
+
+
+    }
+    
+    public static int aggressiveCows(int []stalls, int k) {
+        Arrays.sort(stalls);
+        if(k==2){
+            return stalls[stalls.length-1] - stalls[0];
+        }
+        int low = 1;//this is the minimum possible gap between the stalls
+         int high = stalls[stalls.length - 1] ;   // this is the max possible gap bw the stalls ( its actually supposed to be smallerlol)
+  
+        int ans = -1;
+        while(low<=high){
+            int mid = low + (high-low)/2;
+            if(check(stalls,mid,k)){
+                low = mid+1;
+                ans = mid;
+
+            }
+            else{
+                high = mid - 1;
+
+
+            }
+
+        }
+        return ans;
+        
+        
+
+
+        
+       
+    }
+}
