@@ -8,7 +8,7 @@ There are 2 possible scenarios -
 1-  the string is all 9s
 2- the string some other number
 
-for the 1st case we just add 1 to the number to get the next smallest palindrome - ex - 99+1 = 101 and so on
+for the 1st case we just add 2 to the number to get the next smallest palindrome - ex - 99+1 = 101 and so on
 
 
 for the 2nd case, its a bit more tricky, 
