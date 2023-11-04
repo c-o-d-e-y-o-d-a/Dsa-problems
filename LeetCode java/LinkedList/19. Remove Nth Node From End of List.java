@@ -63,7 +63,7 @@ public class Solution
  };
 
  *****************************************************************/
-
+//this solution beats 100% at runtime on leetcode
 public class Solution
 {
     public static Node removeKthNode(Node head, int K)
