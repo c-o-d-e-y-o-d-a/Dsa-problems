@@ -5,6 +5,8 @@
 
 // Return true if there is a cycle in the linked list. Otherwise, return false.
 
+//tc of this code - o(N) and sc - O(N)
+
 import java.util.*;
 
 public class Solution {
@@ -33,3 +35,49 @@ public class Solution {
 }
 
 //above mthod uses hashmap to store each node that was previously visited , if node exits in the hashmap that means it was already previously visited by us 
+
+
+//tc - O(N) and sc - O(1)
+
+import java.util.*;
+public class Solution {
+    public static Node removeLoop(Node head) {
+        Node fast = head;
+        Node slow = head;
+        boolean ifLoopExists = false;
+
+        // Detect the loop using Floyd's cycle detection algorithm
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                ifLoopExists = true;
+                break;
+            }
+        }
+
+        if (ifLoopExists) {
+            // Reset one of the pointers to the head and move them at the same pace
+            fast = head;
+            while (fast != slow) {
+                fast = fast.next;
+                slow = slow.next;
+            }
+            Node start = slow;
+            Node cur = start;
+            while(true){
+              if(cur.next==start){
+                cur.next=null;
+                break;
+                
+              }
+              cur = cur.next;
+            }
+
+           
+        }
+        
+
+        return head;
+    }
+}
