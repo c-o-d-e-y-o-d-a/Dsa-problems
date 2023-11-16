@@ -1,4 +1,4 @@
-// using two queues : 
+// using two queues : , all we got to do  is to reverse the main queue to make it function like a stack.
 import java.util.*;
 
 public class Solution {
@@ -39,6 +39,61 @@ public class Solution {
         public int top() {
             if (isEmpty()) return -1;
             return this.q1.peek();
+        }
+    }
+}
+
+//doing the same with a single queue
+import java.util.*;
+public class Solution{
+    static class Stack {
+        Queue<Integer> q1;
+
+        public Stack() {
+            q1 = new LinkedList<Integer>();
+        }
+
+        /*----------------- Public Functions of Stack -----------------*/
+
+        public int getSize() {
+            return this.q1.size();
+        }
+
+        public boolean isEmpty() {
+            return this.q1.isEmpty();
+        }
+
+        public void push(int element) {
+            if(this.q1.isEmpty()){
+                this.q1.add(element);
+            }
+            else{
+                int n = this.q1.size();
+                this.q1.add(element);
+                for(int i =0;i<n;i++){
+                    this.q1.add(this.q1.peek());
+                    this.q1.poll();
+
+                }
+            }
+
+            
+        }//we use this for loop to iterate over the element
+
+        public int pop() {
+            if(!this.q1.isEmpty()){
+                return this.q1.poll();
+
+
+            }
+            else{return -1;}
+        }
+
+        public int top() {
+            if(!this.q1.isEmpty()){
+                return this.q1.peek();
+            }
+            else{return -1;}
         }
     }
 }
