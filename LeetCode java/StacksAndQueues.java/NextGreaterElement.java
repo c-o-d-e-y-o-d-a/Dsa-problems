@@ -40,3 +40,30 @@ public class Solution {
 
    
 }
+
+// optimised approach
+import java.util.*;
+
+public class Solution {
+
+    public static int[] nextGreater(int[] arr, int n) {
+        Stack<Integer> s1 = new Stack<>();
+        int[] finalAns = new int[n];
+		for(int i= n-1;i>=0;i--){
+			while(!s1.isEmpty() && s1.peek() <= arr[i]){
+				s1.pop();
+			}
+			if(s1.isEmpty()){
+				finalAns[i] = -1;
+			}
+			else{
+				finalAns[i] = s1.peek();
+			}
+			s1.push(arr[i]);
+		}
+		return finalAns;
+	}
+		
+
+   
+}
