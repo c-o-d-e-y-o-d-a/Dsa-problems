@@ -1,0 +1,24 @@
+In Java, the == operator is used to compare object references, not the actual content of the 
+objects. When dealing with objects, especially instances of classes, using == compares the memory addresses of the objects, checking 
+if they refer to the same object in memory.
+
+
+
+----------- use . equals to compare when there are integers or objects involved instead of using "=="
+
+
+
+
+On the other hand, the .equals() method is a method that is defined in the Object class, 
+and it is meant to be overridden by classes to provide a meaningful comparison of the contents of the objects. For many Java
+ standard classes (like Integer), the .equals() method is overridden to compare the values rather than the references.
+
+In the context of your code, you're dealing with Integer objects, and using == would compare their references (memory addresses),
+ not their values. Therefore, to compare the actual values of Integer objects, you should use the .equals() method.
+
+Here's a brief explanation:
+
+== checks if two references point to the same object in memory.
+.equals() compares the content of objects, and its behavior depends on how it's implemented in the specific class.
+For primitive types like int, == can be used for comparison since primitive types store their values directly. However,
+ when dealing with objects (like instances of Integer), using .equals() is a safer choice to ensure you are comparing their values.
