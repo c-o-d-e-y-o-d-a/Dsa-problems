@@ -1,0 +1,4 @@
+ ArrayList<Integer> finalAns = new ArrayList<Integer>();
+        for(int i=0;i<price.size();i++){
+            finalAns.add(0);
+        }//you cannot use .setmethod on empty arraylist, first gotta add elements like this
