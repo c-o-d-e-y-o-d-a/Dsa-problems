@@ -14,6 +14,7 @@
  * }
  */
 //beats 100 % with java
+//question can also be done without using the boolean array , just return a negative no if the tree is not balanced
 class Solution {
     public int helper(TreeNode root ,boolean[] ifBalanced){
         if(root == null)return 0;
