@@ -38,3 +38,22 @@ public class Solution {
         return ans;
     }
 }
+//other approach - use an arraylist to store all the node values in Inorder format, if an BST is traversed in Inorder way then the final is always in ascending order
+public class Solution {
+    public static void helper(BinaryTreeNode<Integer> root,ArrayList<Integer> arr){
+        if(root == null)return;
+        helper(root.left,arr);
+        arr.add(root.data);
+        helper(root.right,arr);
+        
+    }
+
+    public static boolean validateBST(BinaryTreeNode<Integer> root) {
+        ArrayList<Integer> ans = new ArrayList<Integer>();
+        helper(root,ans);
+        for(int i=1;i<ans.size();i++){
+            if(ans.get(i)<ans.get(i-1))return false;
+        }
+        return true;
+    }
+}
