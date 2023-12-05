@@ -20,3 +20,6 @@ public class Solution {
         }
     }
 }
+
+// more optimised - using two pointers-
+
