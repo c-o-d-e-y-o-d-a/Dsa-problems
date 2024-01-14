@@ -70,3 +70,45 @@ public class Solution {
 } 
 
 //brute force ( too simple so didn't write , official nc solution)
+
+// officil sol
+public class Solution {
+
+	public static int startingPoint(int[] gas, int[] cost, int n) {
+
+		for (int i = 0; i < n; i++) {
+
+			// Skip these nodes immediately.
+			if (gas[i] < cost[i])
+				continue;
+
+			int gasLeft = 0;
+			int j = 0;
+
+			for (j = i; j < i + n; j++) {
+				gasLeft += gas[j % n] - cost[j % n];
+
+				// Not enough gas so quit.
+				if (gasLeft < 0) {
+
+					// jump to the next possible node.
+					i = j % n;
+					break;
+				}
+			}
+
+			// Go through all nodes with positive gas left.
+			if (gasLeft >= 0) {
+				return i;
+			}
+
+			// Go through all nodes without gas left.
+			else if (j == i + n) {
+				return -1;
+			}
+		}
+
+		return -1;
+	}
+
+}
