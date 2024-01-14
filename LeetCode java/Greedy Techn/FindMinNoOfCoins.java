@@ -10,7 +10,7 @@ public class Solution {
                 ans.add(1000);
                 n -= 1000;
             } else if (n >= 500) {
-                ans.add(500);
+                ans.add(500);c
                 n -= 500;
             } else if (n >= 100) {
                 ans.add(100);
