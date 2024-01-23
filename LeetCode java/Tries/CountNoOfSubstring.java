@@ -1,5 +1,5 @@
-//count number of unique substrings in a string
-
+import java.util.* ;
+import java.io.*; 
 class TrieNode {
     public TrieNode children[];
     public int wordCount;
@@ -98,19 +98,18 @@ class Trie {
         }
     }
 }
+public class Solution {
+    public static int distinctSubstring(String word) {
+        Trie trie = new Trie();
 
-class HelloWorld {
-
-    public static void main(String[] args) {
-        Trie root = new Trie();
-
-        String ex = "abc";
-        for (int i = 0; i < ex.length(); i++) {
-            String temp = ex.substring(i);
-            root.insert(temp);
+        
+        for (int i = 0; i < word.length(); i++) {
+            String temp = word.substring(i);
+            trie.insert(temp);
         }
 
-        int ans = root.countUniqueWords(root.root);
-        System.out.println("Number of unique words in the Trie: " + (ans-1));
+        int ans = trie.countUniqueWords(trie.root);
+        return (ans-1);
+        
     }
 }
