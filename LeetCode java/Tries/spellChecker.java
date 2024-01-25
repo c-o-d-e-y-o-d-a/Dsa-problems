@@ -7,6 +7,9 @@
     Where 'M' is the maximum length of the string present in the 'dictionary'.
 */
 
+//you just find the biggest prefix that exists and then find all words starting with it using trie,
+//hard part is to store the strings you find , you use recursion on each of the 26 nodes in the array of each node , for each node you call the function on all of its non enmpty children nodes.
+
 import java.util.ArrayList;
 
 // Trie Node.
