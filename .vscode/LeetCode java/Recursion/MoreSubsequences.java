@@ -1,0 +1,1 @@
+brute force approach , tc- o(n*m) and sc-O(Max(n,m))
