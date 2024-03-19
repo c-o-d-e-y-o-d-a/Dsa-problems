@@ -67,3 +67,5 @@ public class Solution {
         
     }
 }
+
+//to pass all the test cases , use the iterative approach instead of the recursive one
