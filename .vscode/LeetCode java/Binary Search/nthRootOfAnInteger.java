@@ -33,3 +33,27 @@ public class Solution {
         return temp;
     }
 }
+
+
+//working solution
+
+complexity = time- O(log(n) * log(m))
+public class Solution {
+    public static int NthRoot(int n, int m) {
+       int low = 0;
+       int high = m;
+       int mid = 0;
+       while(low<=high){
+           mid = low + (high-low)/2;
+           int possibleAns = (int) Math.pow(mid,n);
+           if(possibleAns == m)return mid;
+           else if(possibleAns > m){
+               high = mid -1;
+           }
+           else{
+               low = mid + 1;
+           }
+       }
+       return -1;
+    }
+}
